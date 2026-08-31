@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Datenschutzhinweise für PerfectMode: Konten, Fitness-, Ernährungs-, GPS-, Health-, Kauf- und AI-Daten sowie Löschung und Kontakte.">
+  <meta name="theme-color" content="#f5f4ef">
+  <title>Datenschutz – PerfectMode</title>
+  <link rel="canonical" href="https://perfectmode.app/privacy">
+  <link rel="alternate" hreflang="de" href="https://perfectmode.app/privacy">
+  <link rel="alternate" hreflang="pl" href="https://perfectmode.app/pl/privacy">
+  <link rel="alternate" hreflang="en" href="https://perfectmode.app/en/privacy">
+  <link rel="alternate" hreflang="x-default" href="https://perfectmode.app/privacy">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <!-- LEGAL REVIEW REQUIRED BEFORE PRODUCTION -->
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">PerfectMode</a>
+      <nav class="top-nav" aria-label="Hauptnavigation"><a href="/privacy/" aria-current="page">Datenschutz</a><a href="/terms/">Nutzungsbedingungen</a><a href="/support/">Support</a><a href="/account-deletion/">Konto löschen</a><a href="/imprint/">Impressum</a></nav>
+      <nav class="language-switcher" aria-label="Sprache"><a href="/privacy/" lang="de" hreflang="de" aria-current="page">DE</a><a href="/pl/privacy/" lang="pl" hreflang="pl">PL</a><a href="/en/privacy/" lang="en" hreflang="en">EN</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="legal-hero container">
+      <p class="eyebrow">Rechtliche Informationen</p>
+      <h1>Datenschutz</h1>
+      <p class="lede">Wie PerfectMode Daten in der aktuellen technischen Ausgestaltung verarbeitet.</p>
+      <div class="meta-row"><span>Stand: 1. September 2026</span><span>Verantwortlicher: Lukasz Urbaniak</span></div>
+    </section>
+    <div class="container legal-layout">
+      <nav class="side-nav" aria-label="Inhaltsübersicht">
+        <p>Auf dieser Seite</p>
+        <a href="#verantwortlicher">Verantwortlicher</a><a href="#grundsaetze">Grundmodell</a><a href="#account">Account</a><a href="#fitness">Fitness & Ernährung</a><a href="#running">GPS-Läufe</a><a href="#health">Health</a><a href="#dienste">Dienste</a><a href="#loeschung">Löschung</a><a href="#rechte">Ihre Rechte</a>
+      </nav>
+      <article class="legal-content">
+        <section class="section-card" id="verantwortlicher">
+          <h2>1. Verantwortlicher und Kontakt</h2>
+          <address><strong>Lukasz Urbaniak, Einzelunternehmen</strong><br>Karlstraße 8<br>27711 Osterholz-Scharmbeck<br>Deutschland</address>
+          <p>Datenschutzanfragen: <a href="mailto:privacy@perfectmode.app">privacy@perfectmode.app</a><br>Allgemeiner Support: <a href="mailto:support@perfectmode.app">support@perfectmode.app</a></p>
+        </section>
+        <section class="section-card" id="grundsaetze">
+          <h2>2. Grundmodell der Datenverarbeitung</h2>
+          <p>PerfectMode speichert App-Daten grundsätzlich zuerst lokal auf dem Gerät. Persönliche Profil-, Trainings-, Ernährungs- und Fortschrittsdaten werden nur mit einem angemeldeten Konto und aktivem Premium-Zugang über Supabase synchronisiert. Abgeschlossene GPS-Läufe folgen demselben Konto-/Premium-Gate, nutzen aber eine separate Cloud-Tabelle.</p>
+          <p>Ohne Konto und aktives Premium bleiben diese Bereiche lokal. Health-Schritte und der lokale Chatverlauf gehören nicht zur Cloud-Synchronisierung. Beim externen Premium-AI-Pfad entstehen jedoch kontobezogene Serverdaten, wie unten beschrieben.</p>
+          <div class="notice"><strong>Website:</strong> Diese Website verwendet keine Analytics-, Werbe- oder Tracking-Technik, keine Cookies, keine externen Schriftarten und keine extern verarbeiteten Formulare. Kontakt erfolgt ausschließlich über E-Mail-Links.</div>
+        </section>
+        <section class="section-card" id="account">
+          <h2>3. Account und Authentifizierung</h2>
+          <p>Für ein Konto verarbeitet Supabase Auth die E-Mail-Adresse, eine technische User-ID (UUID), den verwendeten Auth-Provider sowie Session-, Anmelde-, Bestätigungs-, Passwort-Reset- und PKCE-Daten. Die Session wird geschützt auf dem Gerät gespeichert.</p>
+          <p>Technisch integriert sind E-Mail/Passwort und „Mit Apple anmelden“. Die User-ID ordnet Cloud-Daten, Premium-Berechtigungen und serverseitige Nutzung dem Konto zu.</p>
+        </section>
+        <section class="section-card" id="fitness">
+          <h2>4. Profil, Fitness, Training, Ernährung und Fortschritt</h2>
+          <h3>Profil und Planung</h3>
+          <p>Verarbeitet werden Sprache, Alter, ausgewähltes Geschlecht, Größe, aktuelles Gewicht, Zielgewicht, Ziel, Aktivitätsniveau, manuelle Schritte sowie Trainingsniveau, Trainingsort und Trainingstage. Coach-Präferenzen können Trainingsfokus, Ernährungsstil, Allergien, freiwillige Health-/Safety-Angaben und Supplement-Präferenzen enthalten.</p>
+          <h3>Training</h3>
+          <p>Gespeichert werden unter anderem Plan- und Workout-Zuordnung, Trainingseinheiten, Übungen, Sätze, Wiederholungen, Gewichte oder Dauern, Zeitpunkte, Status, Fortschrittsmetriken und persönliche Bestleistungen.</p>
+          <h3>Ernährung</h3>
+          <p>Verarbeitet werden Ernährungstagebuch, Lebensmittel-Snapshots, Mengen, Mahlzeiten, Kalorien, Makronährstoffe, eigene Lebensmittel, Favoriten, zuletzt verwendete Lebensmittel, bevorzugte Einheiten, gespeicherte Mahlzeiten, Tagesabschlüsse, Meal Plans, Ziel-Snapshots und adaptive Kalorienwerte.</p>
+          <h3>Körperfortschritt</h3>
+          <p>Fortschrittseinträge können Datum, Gewicht und optional Maße für Taille, Hüfte, Brust, Oberarm und Oberschenkel enthalten.</p>
+          <p>Diese Bereiche liegen lokal und werden nur mit Konto und aktivem Premium als kontobezogene Dokumente in Supabase synchronisiert.</p>
+        </section>
+        <section class="section-card" id="running">
+          <h2>5. GPS-Läufe und präziser Standort</h2>
+          <p>Wenn ein GPS-Lauf gestartet wird, verarbeitet PerfectMode präzise Standortpunkte mit Breiten- und Längengrad, Zeitstempel, Genauigkeit und optional Höhe. Bei erteilter Hintergrundberechtigung kann die Aufzeichnung bei gesperrtem Bildschirm fortgesetzt werden.</p>
+          <p>Der aktive Entwurf und seine Punkte werden lokal gespeichert. Ein abgeschlossener Lauf enthält die vollständige, komprimierte Route sowie Punktzahl, Distanz, Start- und Endzeit, verstrichene Zeit, Bewegungszeit, Pace, Geschwindigkeit, Kalorien, Splits, Zeitstempel, optionale Bildunterschrift und Sichtbarkeitseinstellungen.</p>
+          <p>Mit angemeldetem Konto und aktivem Premium wird der vollständige Lauf einschließlich der vollständigen präzisen Route in der kontobezogenen Supabase-Tabelle <code>run_sessions</code> synchronisiert. Läufe sind standardmäßig privat und werden nicht automatisch veröffentlicht.</p>
+        </section>
+        <section class="section-card" id="health">
+          <h2>6. Apple HealthKit und Health Connect</h2>
+          <p>Nach Systemfreigabe liest PerfectMode ausschließlich Schrittzahlen aus <code>HKQuantityTypeIdentifierStepCount</code> auf iOS beziehungsweise <code>Steps</code> aus Health Connect auf Android. PerfectMode schreibt keine Daten in Apple Health oder Health Connect.</p>
+          <ul class="compact-list"><li>Tageswerte können bis zu 30 Tage in einem löschbaren lokalen Cache verbleiben.</li><li>Health-Schritte werden nicht über Cloud Sync synchronisiert.</li><li>Health-Schritte werden nicht an OpenAI übertragen.</li><li>Beim Trennen der Health-Verbindung wird der lokale Schritt-Cache gelöscht.</li></ul>
+        </section>
+        <section class="section-card" id="dienste">
+          <h2>7. Eingesetzte Dienste und Empfänger</h2>
+          <h3>Supabase</h3>
+          <p>Supabase stellt Authentifizierung, Datenbank, Premium Cloud Sync und Edge Functions bereit. Edge Functions verarbeiten unter anderem Kontolöschung, den externen AI-Pfad, Online-Barcodeabfragen und RevenueCat-Webhooks.</p>
+          <h3>RevenueCat und App Stores</h3>
+          <p>RevenueCat erhält die Supabase-UUID als App User ID und verarbeitet Offering, Produkt, Preis/Währung, Kauf, Laufzeit, Verlängerungsstatus, Entitlement und Management-URL. Kontobezogene Entitlement- und Eventdaten gelangen über Webhooks zu Supabase. Zahlungen werden vom Apple App Store beziehungsweise Google Play abgewickelt; PerfectMode speichert keine Kreditkartendaten. Fitness-, Ernährungs-, GPS- und Health-Daten werden nicht an RevenueCat gesendet.</p>
+          <h3>Premium AI Coach, Supabase und OpenAI</h3>
+          <p>Wenn der externe Premium-AI-Pfad verfügbar ist und eine Frage nicht lokal beantwortet wird, werden die aktuelle Freitextfrage, höchstens vier relevante Chat-Turns und ausgewählter Kontext zu Ziel, Körperdaten, Training, Ernährung und Fortschritt an eine Supabase Edge Function und anschließend an OpenAI übertragen.</p>
+          <p>Der strukturierte OpenAI-Payload enthält keine E-Mail-Adresse, keine Supabase User-ID und keine HealthKit-/Health-Connect-Schritte. Freitext kann dennoch personenbezogene Angaben enthalten, die Sie selbst eingeben. OpenAI wird mit <code>store: false</code> aufgerufen. Supabase speichert kontobezogen Request-ID, Modell-, Token-, Kosten- und Statusdaten sowie den Response-Payload für Missbrauchsschutz, Kostenkontrolle und Idempotenz. Der lokale Chatverlauf wird nicht als Cloud-Sync-Domäne gespeichert.</p>
+          <div class="notice"><strong>Aktueller technischer Stand:</strong> Ein separater, ausdrücklicher In-App-Consent ausschließlich für die externe AI-Verarbeitung ist noch nicht implementiert. Diese Verarbeitung wird daher nicht als bereits consent-gated dargestellt.</div>
+          <h3>Kamera, Barcode und Open Food Facts</h3>
+          <p>Die Kamera wird ausschließlich im Barcode-Scanner geöffnet. PerfectMode liest den erkannten EAN-/UPC-Code; es werden keine Kamerafotos aufgenommen, gespeichert oder hochgeladen. Bekannte Produkte werden lokal aufgelöst. Bei Konto und aktivem Premium kann ein unbekannter Barcode über eine Supabase Edge Function, einen gemeinsamen Produkt-Cache und Open Food Facts geprüft werden. Open Food Facts erhält den Barcode, aber keine E-Mail-Adresse oder User-ID. Supabase speichert kontobezogene Request-Limits.</p>
+          <h3>Support</h3>
+          <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die von Ihnen freiwillig übermittelten Kontakt- und Inhaltsdaten zur Bearbeitung der Anfrage. Senden Sie keine Passwörter oder Authentifizierungs-Token.</p>
+        </section>
+        <section class="section-card" id="zwecke">
+          <h2>8. Zwecke und Rechtsgrundlagen</h2>
+          <p>Die Daten werden je nach Funktion zur Bereitstellung der App und des Kontos, Personalisierung von Training und Ernährung, Fortschritts- und Laufauswertung, Bereitstellung von Premium-Funktionen, Kaufverwaltung, Support, Sicherheit, Missbrauchsvermeidung und Erfüllung gesetzlicher Pflichten verarbeitet.</p>
+          <p>Als Rechtsgrundlagen kommen – abhängig von der konkreten Verarbeitung – Vertragserfüllung und vorvertragliche Maßnahmen, Einwilligung bei optionalen Geräteberechtigungen und gegebenenfalls besonders geschützten Daten, rechtliche Pflichten sowie berechtigte Interessen an einem sicheren und wirtschaftlich betreibbaren Dienst in Betracht. Einwilligungen können mit Wirkung für die Zukunft widerrufen und Systemberechtigungen in den Geräteeinstellungen geändert werden.</p>
+        </section>
+        <section class="section-card" id="speicherung">
+          <h2>9. Speicherdauer und Sicherheit</h2>
+          <p>Lokale Daten bleiben grundsätzlich auf dem Gerät, bis sie in der App gelöscht, beim vorgesehenen Löschpfad geleert oder durch Löschen der App-Daten entfernt werden. Der Health-Schritt-Cache ist auf bis zu 30 Tage ausgelegt. Cloud-Daten bleiben grundsätzlich bis zur nutzerseitigen Einzel- oder Kontolöschung beziehungsweise bis zum Ablauf notwendiger technischer, vertraglicher oder gesetzlicher Aufbewahrung erhalten.</p>
+          <p>Provider wie Apple, Google, RevenueCat, Supabase und OpenAI können eigene Aufbewahrungsregeln anwenden. PerfectMode verwendet konto- und nutzerbezogene Zugriffsregeln sowie verschlüsselte Transportverbindungen der eingesetzten Plattformen. Kein System kann absolute Sicherheit garantieren.</p>
+        </section>
+        <section class="section-card" id="loeschung">
+          <h2>10. Kontolöschung und verbleibende lokale Daten</h2>
+          <p>Der In-App-Pfad <strong>Profil → Konto → Konto löschen</strong> löscht den Supabase-Auth-Account. Durch Datenbankkaskaden werden kontobezogene App-Dokumente, Cloud-Läufe und Routen, AI-Nutzungs-/Antwortdaten, serverseitige Entitlement- und Webhook-Daten sowie externe Request-Limits entfernt. Danach werden die lokale Auth-Session und die normalen lokalen Cloud-Sync-Domänen geleert.</p>
+          <p><strong>Nicht automatisch entfernt</strong> werden derzeit die lokale Laufhistorie, ein aktiver Lauf und der lokale Health-Schritt-Cache. Läufe können einzeln gelöscht, Health kann getrennt und verbleibende lokale Daten können durch Löschen der App-Daten entfernt werden.</p>
+          <p>Ein Store-Abonnement wird nicht automatisch gekündigt. Die Apple-Sign-In-Autorisierung beziehungsweise das Apple-Token wird beim aktuellen Löschvorgang nicht zusätzlich widerrufen. Kaufhistorien und Provider-Logs können nach den Regeln des jeweiligen Anbieters fortbestehen. Details finden Sie unter <a href="/account-deletion/">Kontolöschung</a>.</p>
+        </section>
+        <section class="section-card" id="rechte">
+          <h2>11. Ihre Datenschutzrechte</h2>
+          <p>Im Rahmen der gesetzlichen Voraussetzungen können Sie Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch verlangen. Eine erteilte Einwilligung können Sie mit Wirkung für die Zukunft widerrufen. Außerdem besteht das Recht, sich bei einer zuständigen Datenschutzaufsichtsbehörde zu beschweren.</p>
+          <p>Für Anfragen schreiben Sie an <a href="mailto:privacy@perfectmode.app">privacy@perfectmode.app</a>. Zur Vermeidung unbefugter Auskünfte kann eine angemessene Identitätsprüfung erforderlich sein.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div class="footer-identity"><p><strong>PerfectMode</strong></p><span>Anbieter: Lukasz Urbaniak</span></div><nav class="footer-nav" aria-label="Fußnavigation"><a href="/support/">Support</a><a href="/privacy/">Datenschutz</a><a href="/terms/">Nutzungsbedingungen</a><a href="/imprint/">Impressum</a><a href="/account-deletion/">Kontolöschung</a></nav></div></footer>
+</body>
+</html>
+
