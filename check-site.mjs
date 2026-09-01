@@ -95,12 +95,12 @@ for (const file of ['terms/index.html', 'pl/terms/index.html', 'en/terms/index.h
 }
 
 const truthfulStatements = [
-  ['privacy/index.html', ['separate ausdrückliche Einwilligung', 'künftige Übertragungen', 'werden nicht an OpenAI übertragen']],
-  ['pl/privacy/index.html', ['osobnej, wyraźnej zgody', 'przyszłych przesłań', 'nie są przesyłane do OpenAI']],
-  ['en/privacy/index.html', ['separate, explicit consent', 'future transfers', 'are not sent to OpenAI']],
-  ['account-deletion/index.html', ['nicht automatisch entfernt', 'nicht zusätzlich widerrufen']],
-  ['pl/account-deletion/index.html', ['nie są automatycznie usuwane', 'nie cofa dodatkowo']],
-  ['en/account-deletion/index.html', ['not removed automatically', 'does not additionally revoke']],
+  ['privacy/index.html', ['separate ausdrückliche Einwilligung', 'künftige Übertragungen', 'werden nicht an OpenAI übertragen', 'Refresh Token']],
+  ['pl/privacy/index.html', ['osobnej, wyraźnej zgody', 'przyszłych przesłań', 'nie są przesyłane do OpenAI', 'Refresh Token']],
+  ['en/privacy/index.html', ['separate, explicit consent', 'future transfers', 'are not sent to OpenAI', 'refresh token']],
+  ['account-deletion/index.html', ['Zusätzlich entfernt', 'widerruft PerfectMode', 'kündigt kein aktives Abonnement']],
+  ['pl/account-deletion/index.html', ['Usuwane są także', 'PerfectMode cofa autoryzację', 'nie anuluje aktywnej subskrypcji']],
+  ['en/account-deletion/index.html', ['Also removed', 'PerfectMode revokes', 'does not cancel an active']],
 ];
 for (const [file, statements] of truthfulStatements) {
   const html = readFileSync(join(siteRoot, file), 'utf8');

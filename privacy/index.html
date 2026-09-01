@@ -50,7 +50,7 @@
         <section class="section-card" id="account">
           <h2>3. Account und Authentifizierung</h2>
           <p>Für ein Konto verarbeitet Supabase Auth die E-Mail-Adresse, eine technische User-ID (UUID), den verwendeten Auth-Provider sowie Session-, Anmelde-, Bestätigungs-, Passwort-Reset- und PKCE-Daten. Die Session wird geschützt auf dem Gerät gespeichert.</p>
-          <p>Technisch integriert sind E-Mail/Passwort und „Mit Apple anmelden“. Die User-ID ordnet Cloud-Daten, Premium-Berechtigungen und serverseitige Nutzung dem Konto zu.</p>
+          <p>Technisch integriert sind E-Mail/Passwort und „Mit Apple anmelden“. Die User-ID ordnet Cloud-Daten, Premium-Berechtigungen und serverseitige Nutzung dem Konto zu. Bei Apple Sign-In wird der kurzlebige Autorisierungscode serverseitig validiert. Der dabei erhaltene Apple Refresh Token wird ausschließlich in einer für normale Clients gesperrten Supabase-Tabelle bis zum Widerruf oder zur Kontolöschung gespeichert; er wird nicht auf dem Gerät gespeichert.</p>
         </section>
         <section class="section-card" id="fitness">
           <h2>4. Profil, Fitness, Training, Ernährung und Fortschritt</h2>
@@ -102,9 +102,9 @@
         </section>
         <section class="section-card" id="loeschung">
           <h2>10. Kontolöschung und verbleibende lokale Daten</h2>
-          <p>Der In-App-Pfad <strong>Profil → Konto → Konto löschen</strong> löscht den Supabase-Auth-Account. Durch Datenbankkaskaden werden kontobezogene App-Dokumente, Cloud-Läufe und Routen, AI-Nutzungs-/Antwortdaten, serverseitige Entitlement- und Webhook-Daten sowie externe Request-Limits entfernt. Danach werden die lokale Auth-Session und die normalen lokalen Cloud-Sync-Domänen geleert.</p>
-          <p><strong>Nicht automatisch entfernt</strong> werden derzeit die lokale Laufhistorie, ein aktiver Lauf und der lokale Health-Schritt-Cache. Läufe können einzeln gelöscht, Health kann getrennt und verbleibende lokale Daten können durch Löschen der App-Daten entfernt werden.</p>
-          <p>Ein Store-Abonnement wird nicht automatisch gekündigt. Die Apple-Sign-In-Autorisierung beziehungsweise das Apple-Token wird beim aktuellen Löschvorgang nicht zusätzlich widerrufen. Kaufhistorien und Provider-Logs können nach den Regeln des jeweiligen Anbieters fortbestehen. Details finden Sie unter <a href="/account-deletion/">Kontolöschung</a>.</p>
+          <p>Der In-App-Pfad <strong>Profil → Konto → Konto löschen</strong> widerruft bei Apple-Accounts zuerst die Apple-Sign-In-Autorisierung und löscht danach den Supabase-Auth-Account. Durch Datenbankkaskaden werden kontobezogene App-Dokumente, Cloud-Läufe und Routen, AI-Nutzungs-/Antwortdaten, serverseitige Entitlement-, Webhook- und Apple-Token-Daten sowie externe Request-Limits entfernt. Danach werden die lokale Auth-Session und die normalen lokalen Cloud-Sync-Domänen geleert.</p>
+          <p>Zusätzlich entfernt die App die lokale Laufhistorie, einen gegebenenfalls aktiven GPS-Lauf und den lokalen Health-Schritt-Cache. Health-Daten bei Apple oder Google selbst werden nicht gelöscht.</p>
+          <p>Ein Store-Abonnement wird nicht automatisch gekündigt und muss separat im jeweiligen Store verwaltet werden. Kaufhistorien und Provider-Logs können nach den Regeln des jeweiligen Anbieters fortbestehen. Details finden Sie unter <a href="/account-deletion/">Kontolöschung</a>.</p>
         </section>
         <section class="section-card" id="rechte">
           <h2>11. Ihre Datenschutzrechte</h2>
