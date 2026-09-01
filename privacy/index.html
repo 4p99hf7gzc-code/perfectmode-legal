@@ -84,7 +84,7 @@
           <h3>Premium AI Coach, Supabase und OpenAI</h3>
           <p>Wenn der externe Premium-AI-Pfad verfügbar ist und eine Frage nicht lokal beantwortet wird, werden die aktuelle Freitextfrage, höchstens vier relevante Chat-Turns und ausgewählter Kontext zu Ziel, Körperdaten, Training, Ernährung und Fortschritt an eine Supabase Edge Function und anschließend an OpenAI übertragen.</p>
           <p>Der strukturierte OpenAI-Payload enthält keine E-Mail-Adresse, keine Supabase User-ID und keine HealthKit-/Health-Connect-Schritte. Freitext kann dennoch personenbezogene Angaben enthalten, die Sie selbst eingeben. OpenAI wird mit <code>store: false</code> aufgerufen. Supabase speichert kontobezogen Request-ID, Modell-, Token-, Kosten- und Statusdaten sowie den Response-Payload für Missbrauchsschutz, Kostenkontrolle und Idempotenz. Der lokale Chatverlauf wird nicht als Cloud-Sync-Domäne gespeichert.</p>
-          <div class="notice"><strong>Aktueller technischer Stand:</strong> Ein separater, ausdrücklicher In-App-Consent ausschließlich für die externe AI-Verarbeitung ist noch nicht implementiert. Diese Verarbeitung wird daher nicht als bereits consent-gated dargestellt.</div>
+          <div class="notice"><strong>Einwilligung für externe AI:</strong> Vor der ersten Übertragung über die Supabase Edge Function an OpenAI verlangt die App eine separate ausdrückliche Einwilligung. Sie kann im Profil mit Wirkung für künftige Übertragungen widerrufen werden. Der Widerruf löscht nicht automatisch Daten, die bereits zuvor verarbeitet wurden.</div>
           <h3>Kamera, Barcode und Open Food Facts</h3>
           <p>Die Kamera wird ausschließlich im Barcode-Scanner geöffnet. PerfectMode liest den erkannten EAN-/UPC-Code; es werden keine Kamerafotos aufgenommen, gespeichert oder hochgeladen. Bekannte Produkte werden lokal aufgelöst. Bei Konto und aktivem Premium kann ein unbekannter Barcode über eine Supabase Edge Function, einen gemeinsamen Produkt-Cache und Open Food Facts geprüft werden. Open Food Facts erhält den Barcode, aber keine E-Mail-Adresse oder User-ID. Supabase speichert kontobezogene Request-Limits.</p>
           <h3>Support</h3>
@@ -117,4 +117,3 @@
   <footer class="site-footer"><div class="container footer-inner"><div class="footer-identity"><p><strong>PerfectMode</strong></p><span>Anbieter: Lukasz Urbaniak</span></div><nav class="footer-nav" aria-label="Fußnavigation"><a href="/support/">Support</a><a href="/privacy/">Datenschutz</a><a href="/terms/">Nutzungsbedingungen</a><a href="/imprint/">Impressum</a><a href="/account-deletion/">Kontolöschung</a></nav></div></footer>
 </body>
 </html>
-

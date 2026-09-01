@@ -95,9 +95,9 @@ for (const file of ['terms/index.html', 'pl/terms/index.html', 'en/terms/index.h
 }
 
 const truthfulStatements = [
-  ['privacy/index.html', ['noch nicht implementiert', 'werden nicht an OpenAI übertragen']],
-  ['pl/privacy/index.html', ['nie została jeszcze wdrożona', 'nie są przesyłane do OpenAI']],
-  ['en/privacy/index.html', ['has not yet been implemented', 'are not sent to OpenAI']],
+  ['privacy/index.html', ['separate ausdrückliche Einwilligung', 'künftige Übertragungen', 'werden nicht an OpenAI übertragen']],
+  ['pl/privacy/index.html', ['osobnej, wyraźnej zgody', 'przyszłych przesłań', 'nie są przesyłane do OpenAI']],
+  ['en/privacy/index.html', ['separate, explicit consent', 'future transfers', 'are not sent to OpenAI']],
   ['account-deletion/index.html', ['nicht automatisch entfernt', 'nicht zusätzlich widerrufen']],
   ['pl/account-deletion/index.html', ['nie są automatycznie usuwane', 'nie cofa dodatkowo']],
   ['en/account-deletion/index.html', ['not removed automatically', 'does not additionally revoke']],
