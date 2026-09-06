@@ -28,7 +28,7 @@
       <p class="eyebrow">Rechtliche Informationen</p>
       <h1>Datenschutz</h1>
       <p class="lede">Wie PerfectMode Daten in der aktuellen technischen Ausgestaltung verarbeitet.</p>
-      <div class="meta-row"><span>Stand: 1. September 2026</span><span>Verantwortlicher: Lukasz Urbaniak</span></div>
+      <div class="meta-row"><span>Stand: 6. September 2026</span><span>Verantwortlicher: Lukasz Urbaniak</span></div>
     </section>
     <div class="container legal-layout">
       <nav class="side-nav" aria-label="Inhaltsübersicht">
@@ -61,7 +61,7 @@
           <h3>Ernährung</h3>
           <p>Verarbeitet werden Ernährungstagebuch, Lebensmittel-Snapshots, Mengen, Mahlzeiten, Kalorien, Makronährstoffe, eigene Lebensmittel, Favoriten, zuletzt verwendete Lebensmittel, bevorzugte Einheiten, gespeicherte Mahlzeiten, Tagesabschlüsse, Meal Plans, Ziel-Snapshots und adaptive Kalorienwerte.</p>
           <h3>Körperfortschritt</h3>
-          <p>Fortschrittseinträge können Datum, Gewicht und optional Maße für Taille, Hüfte, Brust, Oberarm und Oberschenkel enthalten.</p>
+          <p>Fortschrittsdaten können Datum, Gewicht, Körperfett, importierte fettfreie Masse und optional Maße für Taille, Hüfte, Brust, Oberarm und Oberschenkel enthalten. Aus Health importierte Körpermesswerte umfassen außerdem Messzeitpunkt, Quelle und Quelldatensatz-ID.</p>
           <p>Diese Bereiche liegen lokal und werden nur mit Konto und aktivem Premium als kontobezogene Dokumente in Supabase synchronisiert.</p>
         </section>
         <section class="section-card" id="running">
@@ -69,20 +69,24 @@
           <p>Wenn ein GPS-Lauf gestartet wird, verarbeitet PerfectMode präzise Standortpunkte mit Breiten- und Längengrad, Zeitstempel, Genauigkeit und optional Höhe. Bei erteilter Hintergrundberechtigung kann die Aufzeichnung bei gesperrtem Bildschirm fortgesetzt werden.</p>
           <p>Der aktive Entwurf und seine Punkte werden lokal gespeichert. Ein abgeschlossener Lauf enthält die vollständige, komprimierte Route sowie Punktzahl, Distanz, Start- und Endzeit, verstrichene Zeit, Bewegungszeit, Pace, Geschwindigkeit, Kalorien, Splits, Zeitstempel, optionale Bildunterschrift und Sichtbarkeitseinstellungen.</p>
           <p>Mit angemeldetem Konto und aktivem Premium wird der vollständige Lauf einschließlich der vollständigen präzisen Route in der kontobezogenen Supabase-Tabelle <code>run_sessions</code> synchronisiert. Läufe sind standardmäßig privat und werden nicht automatisch veröffentlicht.</p>
+          <p>Sie können freiwillig ein Laufbild mit Laufdaten exportieren, auf dem Gerät speichern oder über den System-Teilen-Dialog weitergeben. Bereits gespeicherte oder geteilte Bilder werden durch eine spätere Kontolöschung nicht entfernt; Sie verwalten diese Kopien selbst auf Ihrem Gerät beziehungsweise beim gewählten Empfänger.</p>
         </section>
         <section class="section-card" id="health">
           <h2>6. Apple HealthKit und Health Connect</h2>
-          <p>Nach Systemfreigabe liest PerfectMode ausschließlich Schrittzahlen aus <code>HKQuantityTypeIdentifierStepCount</code> auf iOS beziehungsweise <code>Steps</code> aus Health Connect auf Android. PerfectMode schreibt keine Daten in Apple Health oder Health Connect.</p>
-          <ul class="compact-list"><li>Tageswerte können bis zu 30 Tage in einem löschbaren lokalen Cache verbleiben.</li><li>Health-Schritte werden nicht über Cloud Sync synchronisiert.</li><li>Health-Schritte werden nicht an OpenAI übertragen.</li><li>Beim Trennen der Health-Verbindung wird der lokale Schritt-Cache gelöscht.</li></ul>
+          <p>Nach Ihrer Freigabe in den Systemeinstellungen liest PerfectMode aus Apple Health auf iOS Schritte, Gewicht, Körperfett, fettfreie Masse und Taillenumfang. Auf Android liest die Health-Connect-Integration nach Systemfreigabe Schritte, Gewicht, Körperfett und fettfreie Masse; Taillenumfang wird dort nicht importiert.</p>
+          <p>Schritte werden für Aktivität und Planung verwendet. Körpermesswerte werden nur übernommen, wenn Sie den Import ausdrücklich auslösen. Importierte Werte werden mit Messzeitpunkt, Quelle und Quelldatensatz-ID zu lokalen PerfectMode-Fortschrittsdaten. Mit angemeldetem Konto und aktivem Premium können diese Fortschrittsdaten über Supabase Cloud Sync kontobezogen synchronisiert werden.</p>
+          <p>PerfectMode verändert die ursprünglichen Daten in Apple Health oder Health Connect nicht und schreibt keine Health-Daten zurück. Das Löschen importierter Werte in PerfectMode löscht keine Quelldaten bei Apple oder Google.</p>
+          <ul class="compact-list"><li>Schritt-Tageswerte können bis zu 30 Tage in einem löschbaren lokalen Cache verbleiben.</li><li>Health-Schritte werden nicht über Cloud Sync synchronisiert.</li><li>Health-Schritte werden nicht an OpenAI übertragen.</li><li>Beim Trennen der Health-Verbindung wird der lokale Schritt-Cache gelöscht.</li></ul>
         </section>
         <section class="section-card" id="dienste">
           <h2>7. Eingesetzte Dienste und Empfänger</h2>
           <h3>Supabase</h3>
           <p>Supabase stellt Authentifizierung, Datenbank, Premium Cloud Sync und Edge Functions bereit. Edge Functions verarbeiten unter anderem Kontolöschung, den externen AI-Pfad, Online-Barcodeabfragen und RevenueCat-Webhooks.</p>
           <h3>RevenueCat und App Stores</h3>
-          <p>RevenueCat erhält die Supabase-UUID als App User ID und verarbeitet Offering, Produkt, Preis/Währung, Kauf, Laufzeit, Verlängerungsstatus, Entitlement und Management-URL. Kontobezogene Entitlement- und Eventdaten gelangen über Webhooks zu Supabase. Zahlungen werden vom Apple App Store beziehungsweise Google Play abgewickelt; PerfectMode speichert keine Kreditkartendaten. Fitness-, Ernährungs-, GPS- und Health-Daten werden nicht an RevenueCat gesendet.</p>
+          <p>RevenueCat erhält die Supabase-UUID als App User ID und verarbeitet Offering, Produkt, Preis/Währung, Kauf, Laufzeit, Verlängerungsstatus, Entitlement und Management-URL. Kontobezogene Entitlement- und Eventdaten gelangen über Webhooks zu Supabase. PerfectMode verwendet RevenueCat zur Prüfung des Premium-Status. Nach „Käufe wiederherstellen“ kann Supabase den aktuellen RevenueCat-Zugang zusätzlich serverseitig abgleichen (Resync) und den kontobezogenen Berechtigungsstatus aktualisieren. Zahlungen werden vom Apple App Store beziehungsweise Google Play abgewickelt; PerfectMode speichert keine Kreditkartendaten. Fitness-, Ernährungs-, GPS- und Health-Daten werden nicht an RevenueCat gesendet.</p>
           <h3>Premium AI Coach, Supabase und OpenAI</h3>
           <p>Wenn der externe Premium-AI-Pfad verfügbar ist und eine Frage nicht lokal beantwortet wird, werden die aktuelle Freitextfrage, höchstens vier relevante Chat-Turns und ausgewählter Kontext zu Ziel, Körperdaten, Training, Ernährung und Fortschritt an eine Supabase Edge Function und anschließend an OpenAI übertragen.</p>
+          <p>Nach separater ausdrücklicher AI-Einwilligung kann aus Health importiertes Gewicht als aktuelles Gewicht beziehungsweise Gewichtstrend Teil dieses ausgewählten Coach-Kontextes sein. Körperfett und fettfreie Masse werden nicht als strukturierte Kontextdaten an OpenAI übertragen.</p>
           <p>Der strukturierte OpenAI-Payload enthält keine E-Mail-Adresse, keine Supabase User-ID und keine HealthKit-/Health-Connect-Schritte. Freitext kann dennoch personenbezogene Angaben enthalten, die Sie selbst eingeben. OpenAI wird mit <code>store: false</code> aufgerufen. Supabase speichert kontobezogen Request-ID, Modell-, Token-, Kosten- und Statusdaten sowie den Response-Payload für Missbrauchsschutz, Kostenkontrolle und Idempotenz. Der lokale Chatverlauf wird nicht als Cloud-Sync-Domäne gespeichert.</p>
           <div class="notice"><strong>Einwilligung für externe AI:</strong> Vor der ersten Übertragung über die Supabase Edge Function an OpenAI verlangt die App eine separate ausdrückliche Einwilligung. Sie kann im Profil mit Wirkung für künftige Übertragungen widerrufen werden. Der Widerruf löscht nicht automatisch Daten, die bereits zuvor verarbeitet wurden.</div>
           <h3>Kamera, Barcode und Open Food Facts</h3>
@@ -102,9 +106,10 @@
         </section>
         <section class="section-card" id="loeschung">
           <h2>10. Kontolöschung und verbleibende lokale Daten</h2>
-          <p>Der In-App-Pfad <strong>Profil → Konto → Konto löschen</strong> widerruft bei Apple-Accounts zuerst die Apple-Sign-In-Autorisierung und löscht danach den Supabase-Auth-Account. Durch Datenbankkaskaden werden kontobezogene App-Dokumente, Cloud-Läufe und Routen, AI-Nutzungs-/Antwortdaten, serverseitige Entitlement-, Webhook- und Apple-Token-Daten sowie externe Request-Limits entfernt. Danach werden die lokale Auth-Session und die normalen lokalen Cloud-Sync-Domänen geleert.</p>
+          <p>Der In-App-Pfad <strong>Profil → Konto → Konto löschen</strong> widerruft bei Apple-Accounts zuerst die Apple-Sign-In-Autorisierung und löscht danach den Supabase-Auth-Account. Durch Datenbankkaskaden werden kontobezogene App-Dokumente, Cloud-Läufe und Routen, AI-Nutzungs-/Antwortdaten, serverseitige Entitlement-, Webhook- und Apple-Token-Daten (einschließlich der Kontoeinträge in <code>apple_oauth_tokens</code>) sowie externe Request-Limits entfernt. Danach werden die lokale Auth-Session und die normalen lokalen Cloud-Sync-Domänen geleert.</p>
           <p>Zusätzlich entfernt die App die lokale Laufhistorie, einen gegebenenfalls aktiven GPS-Lauf und den lokalen Health-Schritt-Cache. Health-Daten bei Apple oder Google selbst werden nicht gelöscht.</p>
-          <p>Ein Store-Abonnement wird nicht automatisch gekündigt und muss separat im jeweiligen Store verwaltet werden. Kaufhistorien und Provider-Logs können nach den Regeln des jeweiligen Anbieters fortbestehen. Details finden Sie unter <a href="/account-deletion/">Kontolöschung</a>.</p>
+          <p>Ein Store-Abonnement wird nicht automatisch gekündigt. Apple-Abonnements müssen Sie separat über die Abonnementverwaltung Ihres Apple-Kontos verwalten beziehungsweise kündigen; für Google-Play-Abonnements gilt dies entsprechend im Google-Store-Konto. Kaufhistorien und Provider-Logs können nach den Regeln des jeweiligen Anbieters fortbestehen. Details finden Sie unter <a href="/account-deletion/">Kontolöschung</a>.</p>
+          <p>Die lokale Bereinigung erfolgt nach erfolgreicher Cloud-Kontolöschung. Schlägt ein lokaler Cleanup-Schritt fehl, meldet die App dies und ermöglicht eine erneute Bereinigung; das Cloud-Konto ist dann bereits gelöscht. Bereits gespeicherte oder geteilte Bilder werden durch eine spätere Kontolöschung nicht entfernt; Sie verwalten diese Kopien selbst auf Ihrem Gerät beziehungsweise beim gewählten Empfänger.</p>
         </section>
         <section class="section-card" id="rechte">
           <h2>11. Ihre Datenschutzrechte</h2>
