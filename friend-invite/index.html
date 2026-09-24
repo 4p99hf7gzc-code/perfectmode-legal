@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>PerfectMode · Freundeseinladung</title></head>
+<body><main><h1>PerfectMode · Freundeseinladung</h1><p>Öffne die Einladung in PerfectMode. Erst dort entscheidest du, ob du sie annehmen oder ablehnen möchtest.</p><a id="open" hidden>In PerfectMode öffnen</a><p>PerfectMode muss auf deinem Gerät installiert sein. Ohne installierte App kann die Einladung hier nicht angenommen werden. Diese Seite bietet keinen Installationslink.</p><p>Falls das Öffnen nicht funktioniert: Code kopieren und in PerfectMode unter Profil → Freunde einfügen.</p><button id="copy" hidden>Einladungscode kopieren</button><p id="status" role="status"></p></main>
+<script>
+// No network calls, analytics, images or automatic app opening. Bearer stays in
+// the fragment and in memory; page loads/link previews never consume an invite.
+const params = new URLSearchParams(location.hash.slice(1));
+const token = params.get('token');
+if (params.getAll('token').length === 1 && /^[a-f0-9]{64}$/.test(token || '')) {
+  const open = document.getElementById('open');
+  open.href = 'bodytransformationapp://friend-invite?token=' + token;
+  open.hidden = false;
+  const copy = document.getElementById('copy'); copy.hidden = false;
+  copy.onclick = async () => {
+    try { await navigator.clipboard.writeText(token); document.getElementById('status').textContent = 'Code kopiert.'; }
+    catch { document.getElementById('status').textContent = 'Kopieren nicht möglich. Verwende den Code aus der Einladungsnachricht.'; }
+  };
+} else document.getElementById('status').textContent = 'Kein gültiger Einladungscode vorhanden.';
+</script></body></html>

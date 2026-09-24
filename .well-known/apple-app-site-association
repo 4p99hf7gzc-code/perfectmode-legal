@@ -1,0 +1,8 @@
+{
+  "applinks": {
+    "details": [{
+      "appIDs": ["FTNU8SHJ63.com.lukaszurbaniak.bodytransformation"],
+      "components": [{ "/": "/friend-invite", "comment": "Only explicit friend-invitation entry; no automatic redemption." }]
+    }]
+  }
+}
